@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+    //define array of quotes
       var quoteSource = [
             {
                 quote : "I have no special talent. I am only passionately curious.",
@@ -48,29 +49,33 @@ $(document).ready(function(){
         
       ];
 
-      var quoteColors =["cyan", 'gray','red','green','blue','orange'];
 
-      $("button").click(function(evt){
+      $(":button").click(function(evt){
+        
+        //define the containers of the info we target
         var quote = $('#quotes p').text();
         var quoteGenius = $('.name').text();
+        
+        //prevent browser's default action
         evt.preventDefault();
-      var length = quoteSource.length;
-      var colors = quoteColors.length;
-      var randomNumber = Math.floor(Math.random()*length);
-      var randomcolor = Math.floor(Math.random()*colors);
-      for(var i=0;i<=length;i++)
-      {
+
+        //get new random quote
+        var length = quoteSource.length;
+        var randomNumber = Math.floor(Math.random()*length);
+        //set a new quote
+         for(var i=0;i<=length;i++)
+        {
           var newQuote = quoteSource[randomNumber].quote;
           var newName = quoteSource[randomNumber].name;
+          //fade out animation with callback
           $('#quotes').fadeOut(500,function(){
               $('#quotes').html('');
               $('#quotes').append('<p class="quotegenius"><q>'+newQuote+'</q></p>'+'<p class="name">'+newName+'</p>');
-              $('body').css('color', "blue");
+              //fadein animation.
               $('#quotes').fadeIn(500);
-
             });
-              break;    
-      }
-    });
-     
-});
+          break;    
+        };//end for loop
+    }); 
+});//end document ready
+
