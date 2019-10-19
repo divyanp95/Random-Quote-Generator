@@ -63,16 +63,18 @@ $(document).ready(function(){
         var length = quoteSource.length;
         var randomNumber = Math.floor(Math.random()*length);
         //set a new quote
-         for(var i=0;i<=length;i++)
+          for(var i=0;i<=length;i++)
         {
-          var newQuote = quoteSource[randomNumber].quote;
-          var newName = quoteSource[randomNumber].name;
-          //fade out animation with callback
-          $('#quotes').fadeOut(500,function(){
-              $('#quotes').html('');
-              $('#quotes').append('<p class="quotegenius"><q>'+newQuote+'</q></p>'+'<p class="name">'+newName+'</p>');
-              //fadein animation.
-              $('#quotes').fadeIn(500);
+            $('.name').fadeOut();
+            var newQuote = quoteSource[randomNumber].quote;
+            var newName = quoteSource[randomNumber].name;
+            //fade out animation with callback
+            $('.quotegenius').fadeOut(500,function(){
+
+                $('.quotegenius').html('');
+                $('.quotegenius').append('<p class="quotegenius"><q>'+newQuote+'</q></p>'+'<p class="name">'+newName+'</p>');
+                //fadein animation.
+                $('.quotegenius').fadeIn(500);
             });
           break;    
         };//end for loop
