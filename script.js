@@ -52,19 +52,11 @@ $(document).ready(function(){
 
       $(":button").click(function(evt){
         
-        //define the containers of the info we target
-        var quote = $('#quotes p').text();
-        var quoteGenius = $('.name').text();
-        
-        //prevent browser's default action
-        evt.preventDefault();
-
         //get new random quote
         var length = quoteSource.length;
         var randomNumber = Math.floor(Math.random()*length);
-        //set a new quote
-          for(var i=0;i<=length;i++)
-        {
+        
+          //set a new quote
             $('.name').fadeOut();
             var newQuote = quoteSource[randomNumber].quote;
             var newName = quoteSource[randomNumber].name;
@@ -76,8 +68,6 @@ $(document).ready(function(){
                 //fadein animation.
                 $('.quotegenius').fadeIn(500);
             });
-          break;    
-        };//end for loop
     }); 
 });//end document ready
 
